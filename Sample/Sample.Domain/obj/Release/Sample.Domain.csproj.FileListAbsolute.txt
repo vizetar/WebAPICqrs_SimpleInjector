@@ -1,0 +1,12 @@
+C:\Prozetcs\CQRSProject\Sample\Sample.Domain\bin\Release\Sample.Domain.dll.config
+C:\Prozetcs\CQRSProject\Sample\Sample.Domain\bin\Release\Sample.Domain.dll
+C:\Prozetcs\CQRSProject\Sample\Sample.Domain\bin\Release\Sample.Domain.pdb
+C:\Prozetcs\CQRSProject\Sample\Sample.Domain\bin\Release\EntityFramework.dll
+C:\Prozetcs\CQRSProject\Sample\Sample.Domain\bin\Release\EntityFramework.SqlServer.dll
+C:\Prozetcs\CQRSProject\Sample\Sample.Domain\bin\Release\EntityFramework.xml
+C:\Prozetcs\CQRSProject\Sample\Sample.Domain\bin\Release\EntityFramework.SqlServer.xml
+C:\Prozetcs\CQRSProject\Sample\Sample.Domain\obj\Release\Sample.Domain.csprojResolveAssemblyReference.cache
+C:\Prozetcs\CQRSProject\Sample\Sample.Domain\obj\Release\Sample.Domain.Migrations._init.resources
+C:\Prozetcs\CQRSProject\Sample\Sample.Domain\obj\Release\Sample.Domain.csproj.GenerateResource.Cache
+C:\Prozetcs\CQRSProject\Sample\Sample.Domain\obj\Release\Sample.Domain.dll
+C:\Prozetcs\CQRSProject\Sample\Sample.Domain\obj\Release\Sample.Domain.pdb

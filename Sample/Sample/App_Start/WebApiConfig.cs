@@ -12,6 +12,7 @@ namespace Sample.App_Start
             config.Formatters.JsonFormatter.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
             config.MapHttpAttributeRoutes();
             config.EnsureInitialized();
+			
         }
     }
 }

@@ -10,10 +10,12 @@ using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace Sample.Controllers
 {
 	[RoutePrefix("api/course")]
+	//[EnableCors("http://www.example.com", "Authorization,Content-Type","GET,PUT,POST,DELETE")]
 	public class CourseController : ApiController
 	{
 		private readonly ICommandBus commandbus;
