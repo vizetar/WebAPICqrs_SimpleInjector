@@ -59,9 +59,9 @@
     <Compile Include="Bus\IQueryBus.cs" />
     <Compile Include="Bus\QueryBus.cs" />
     <Compile Include="Class1.cs" />
-    <Compile Include="CommandHandlers\APICommandHandlers.cs" />
+    <Compile Include="CommandHandlers\AddNewCourseCommandHandler.cs" />
     <Compile Include="CommandHandlers\ICommandHandler.cs" />
-    <Compile Include="Commands\APICommands.cs" />
+    <Compile Include="Commands\AddNewCourseCommand.cs" />
     <Compile Include="Events\CommitDecorator.cs" />
     <Compile Include="Events\IPostCommitEvent.cs" />
     <Compile Include="Events\PostCommitEvent.cs" />

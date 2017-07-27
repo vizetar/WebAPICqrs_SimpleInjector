@@ -9,3 +9,4 @@ C:\Prozetcs\Sample\Sample.Domain\obj\Debug\Sample.Domain.Migrations._init.resour
 C:\Prozetcs\Sample\Sample.Domain\obj\Debug\Sample.Domain.csproj.GenerateResource.Cache
 C:\Prozetcs\Sample\Sample.Domain\obj\Debug\Sample.Domain.dll
 C:\Prozetcs\Sample\Sample.Domain\obj\Debug\Sample.Domain.pdb
+C:\Prozetcs\Sample\Sample.Domain\obj\Debug\Sample.Domain.csprojResolveAssemblyReference.cache
