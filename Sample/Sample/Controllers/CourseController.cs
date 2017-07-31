@@ -22,30 +22,43 @@ namespace Sample.Controllers
 		{
 			this.commandbus = commandbus;
 			this.querybus = querybus;
+
 		}
 
 		[HttpGet]
 		[Route("{Id}")]
-		public IHttpActionResult GetById([FromUri]GetCourseByIdQuery query)
+		public IHttpActionResult GetById([FromUri]GetByValueQuery query)
 		{
-			var result =  querybus.Query<GetCourseByIdQuery, CourseModel>(query);
+			var result =  querybus.Query<GetByValueQuery, CourseModel>(query);
 			return Ok(result);
+		}
+
+		[HttpPut]
+		[Route("")]
+		public async Task<IHttpActionResult> Put([FromBody]AddNewCourseCommand coursecommand)
+		{
+			await commandbus.Run(coursecommand);
+			return Ok(coursecommand.CreatedCourseId);
 		}
 
 		[HttpPost]
 		[Route("")]
-		public async Task<IHttpActionResult> Add([FromBody]AddNewCourseCommand coursecommand)
+		public async Task<IHttpActionResult> Post([FromBody]ModifyCourseCommand coursecommand)
 		{
 			await commandbus.Run(coursecommand);
-			var result = new CourseModel
-			{
-				Id = coursecommand.CreatedCourseId,
-				Name = coursecommand.Name,
-				Duration = coursecommand.Duration
-			};
-
-			return Ok(result);
+			return Ok();
 		}
+
+		[HttpDelete]
+		[Route("{Id}")]
+		public async Task<IHttpActionResult> Delete([FromUri]String Id)
+		{
+			//String value = Id;
+			await commandbus.Run(Id);
+			return Ok();
+		}
+
+
 
 
 	}

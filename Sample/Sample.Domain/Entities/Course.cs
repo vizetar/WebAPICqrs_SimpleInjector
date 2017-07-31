@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Repository.Pattern.Ef6;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Sample.Domain.Entities
 {
-	public class Course 
+	public class Course : Entity
 	{
 		public Course()
 		{

@@ -9,8 +9,8 @@ using System.Threading.Tasks;
 
 namespace Sample.Infrastucture.Queries
 {
-	public class GetCourseByIdQuery : IQuery<CourseModel>
+	public class GetByValueQuery : IQuery<CourseModel>
 	{
-		public string Id { get; set; }
+		public string Value { get; set; }
 	}
 }

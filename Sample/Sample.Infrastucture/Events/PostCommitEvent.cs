@@ -8,7 +8,7 @@ namespace Sample.Infrastucture.Events
 {
 	public class PostCommitEvent : IPostCommitEvent
 	{
-		public event Action PostCommit = () => { Guid.NewGuid(); };
+		public event Action PostCommit = () => { };
 
 		public void Raise()
 		{

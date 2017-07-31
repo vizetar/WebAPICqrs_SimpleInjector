@@ -9,21 +9,22 @@ using System.Threading.Tasks;
 using System.Data.Entity;
 using Sample.Infrastucture.Models;
 using AutoMapper;
+using Repository.Pattern.Repositories;
 
 namespace Sample.Infrastucture.QueryHandlers
 {
-	public class GetCourseByIdHandler : IQueryHandler<GetCourseByIdQuery, CourseModel>
+	public class GetCourseByIdHandler : IQueryHandler<GetByValueQuery, CourseModel>
 	{
-		private readonly SampleDBContext dbcontext;
+		private readonly IRepositoryAsync<Course> _repository;
 
-		public GetCourseByIdHandler(SampleDBContext dbcontext)
+		public GetCourseByIdHandler(IRepositoryAsync<Course> repository) 
 		{
-			this.dbcontext = dbcontext;
+			this._repository = repository;
 		}
 
-		public CourseModel Handle(GetCourseByIdQuery query)
+		public CourseModel Handle(GetByValueQuery query)
 		{
-			Course course = dbcontext.Courses.Find(query.Id);
+			Course course = _repository.Find(query.Value);
 			Mapper.Initialize(cfg => cfg.CreateMap<Course, CourseModel>());
 			return Mapper.Map<CourseModel>(course);
 		}

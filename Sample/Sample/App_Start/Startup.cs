@@ -16,6 +16,11 @@ using System.Net.Http.Headers;
 using Newtonsoft.Json.Serialization;
 using System.Web.Routing;
 using Sample.Infrastucture.QueryHandlers;
+using Repository.Pattern.Repositories;
+using Sample.Domain.Entities;
+using Repository.Pattern.Ef6;
+using Repository.Pattern.UnitOfWork;
+using Repository.Pattern.DataContext;
 
 [assembly:OwinStartup(typeof(Sample.App_Start.Startup))]
 
@@ -62,17 +67,18 @@ namespace Sample.App_Start
 			container.RegisterCollection(typeof(IQueryHandler<,>), typeof(IQueryHandler<,>).Assembly);
 
 			container.Register<ICommandBus, CommandBus>();
-
+			container.Register<IUnitOfWorkAsync, UnitOfWork>(Lifestyle.Singleton);
+			//container.Register<IDataContextAsync, DataContext>(Lifestyle.Singleton);
 			container.RegisterCollection(typeof(ICommandHandler<>),  typeof(ICommandHandler<>).Assembly);
 			container.RegisterDecorator(typeof(ICommandHandler<>), typeof(CommitDecorator<>));
 			container.RegisterDecorator(typeof(ICommandHandler<>), typeof(PostCommitEventDecorator<>));
-
+			container.Register<IRepositoryAsync<Course>, Repository<Course>>();
 
 			container.RegisterWebApiRequest<PostCommitEvent>();
 			container.Register<IPostCommitEvent>(container.GetInstance<PostCommitEvent>);
 
-			container.Register<SampleDBContext>(Lifestyle.Singleton);
-			//container.Register<IRepository, DbContextRepository>();
+			//container.Register<SampleDBContext>(Lifestyle.Singleton);
+			container.Register<IDataContextAsync, SampleDBContext>(Lifestyle.Singleton);
 
 			//container.Register<IUnitOfWork, DbContextUnitOfWork>();
 		}

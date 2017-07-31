@@ -1,4 +1,5 @@
-﻿using Sample.Domain;
+﻿using Repository.Pattern.UnitOfWork;
+using Sample.Domain;
 using Sample.Infrastucture.CommandHandlers;
 using System;
 using System.Collections.Generic;
@@ -11,18 +12,23 @@ namespace Sample.Infrastucture.Events
 	public class CommitDecorator<TCommand> : ICommandHandler<TCommand>
 	{
 		private readonly ICommandHandler<TCommand> decorated;
-		private readonly SampleDBContext dbcontext;
+		private readonly IUnitOfWorkAsync _unitOfWorkAsync;
 
-		public CommitDecorator(ICommandHandler<TCommand> decorated,SampleDBContext dbcontext)
+		public CommitDecorator(ICommandHandler<TCommand> decorated, IUnitOfWorkAsync unitOfWorkAsync)
 		{
 			this.decorated = decorated;
-			this.dbcontext = dbcontext;
+			this._unitOfWorkAsync = unitOfWorkAsync;
 		}
 
 		public async Task Handle(TCommand command)
 		{
 			await decorated.Handle(command);
-			await dbcontext.SaveChangesAsync();
+
+			//if (_unitOfWorkAsync.Commit())
+				await _unitOfWorkAsync.SaveChangesAsync();
+			//else
+			//	 _unitOfWorkAsync.Rollback();
+
 			//unitOfWork.Commit();
 		}
 	}
