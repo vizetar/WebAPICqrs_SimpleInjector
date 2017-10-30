@@ -45,3 +45,4 @@ C:\Prozetcs\CQRSProject\Sample\Sample.Infrastucture\bin\Debug\Microsoft.Practice
 C:\Prozetcs\CQRSProject\Sample\Sample.Infrastucture\obj\Debug\Sample.Infrastucture.csprojResolveAssemblyReference.cache
 C:\Prozetcs\CQRSProject\Sample\Sample.Infrastucture\obj\Debug\Sample.Infrastucture.dll
 C:\Prozetcs\CQRSProject\Sample\Sample.Infrastucture\obj\Debug\Sample.Infrastucture.pdb
+C:\Prozetcs\CQRSProject\Sample\Sample.Infrastucture\obj\Debug\Sample.Infrastucture.csproj.CoreCompileInputs.cache

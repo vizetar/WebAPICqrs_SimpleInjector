@@ -1,0 +1,36 @@
+//{
+//	//"compilerOptions": {
+//	//  "noImplicitAny": false,
+//	//  "noEmitOnError": true,
+//	//  "removeComments": false,
+//	//  "sourceMap": true,
+//	//  "target": "es5"
+//	//},
+//	//"exclude": [
+//	//  "node_modules",
+//	//  "wwwroot"
+//	//]
+//}
+
+{
+	"profiles": {
+		"IIS Express": {
+			"commandName": "IISExpress",
+			"launchBrowser": true,
+		//	"launchUrl": "api/values", //REMOVE THIS ONE
+			"environmentVariables": {
+				"ASPNETCORE_ENVIRONMENT": "Development"
+			}
+		}
+	},
+		"AuthorizationServer": {
+			"commandName": "Project",
+			"launchBrowser": true,
+			//"launchUrl": "api/values", //REMOVE THIS ONE
+			"environmentVariables": {
+				"ASPNETCORE_ENVIRONMENT": "Development"
+			},
+			"applicationUrl": "http://localhost:50011"
+		}
+	}
+	

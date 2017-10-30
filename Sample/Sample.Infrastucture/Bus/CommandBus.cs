@@ -1,9 +1,8 @@
 ﻿using Sample.Infrastucture.CommandHandlers;
 using SimpleInjector;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
-using System.Data.Entity;
+
 
 namespace Sample.Infrastucture.Bus
 {

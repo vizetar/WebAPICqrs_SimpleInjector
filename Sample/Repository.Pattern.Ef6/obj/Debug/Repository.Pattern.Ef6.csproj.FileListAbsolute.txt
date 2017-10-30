@@ -33,3 +33,4 @@ C:\Prozetcs\CQRSProject\Sample\Repository.Pattern.Ef6\bin\Debug\EntityFramework.
 C:\Prozetcs\CQRSProject\Sample\Repository.Pattern.Ef6\obj\Debug\Repository.Pattern.Ef6.csprojResolveAssemblyReference.cache
 C:\Prozetcs\CQRSProject\Sample\Repository.Pattern.Ef6\obj\Debug\Repository.Pattern.Ef6.dll
 C:\Prozetcs\CQRSProject\Sample\Repository.Pattern.Ef6\obj\Debug\Repository.Pattern.Ef6.pdb
+C:\Prozetcs\CQRSProject\Sample\Repository.Pattern.Ef6\obj\Debug\Repository.Pattern.Ef6.csproj.CoreCompileInputs.cache

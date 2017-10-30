@@ -21,20 +21,43 @@ using Sample.Domain.Entities;
 using Repository.Pattern.Ef6;
 using Repository.Pattern.UnitOfWork;
 using Repository.Pattern.DataContext;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.DependencyInjection;
+using Sample.Configuration;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Logging;
+using System.Configuration;
 
-[assembly:OwinStartup(typeof(Sample.App_Start.Startup))]
+//[assembly:OwinStartup(typeof(Sample.App_Start.Startup))]
 
 namespace Sample.App_Start
 {
 	public partial class Startup
 	{
-		public static void Configuration(IAppBuilder app)
+		//public static void Configuration(IAppBuilder app)
+		//{
+		//	InitializeSimpleInjector();
+		//	AreaRegistration.RegisterAllAreas();
+		//	var httpConfiguration = CreateHttpConfiguration();
+		//	GlobalConfiguration.Configure(WebApiConfig.Register);
+		//	RouteConfig.RegisterRoutes(RouteTable.Routes);
+			
+
+
+		//	//loggerFactory.AddDebug();
+
+		//}
+
+		public void Configuration(IAppBuilder app, IApplicationBuilder application, IHostingEnvironment env, ILoggerFactory loggerFactory)
 		{
 			InitializeSimpleInjector();
 			AreaRegistration.RegisterAllAreas();
 			var httpConfiguration = CreateHttpConfiguration();
 			GlobalConfiguration.Configure(WebApiConfig.Register);
 			RouteConfig.RegisterRoutes(RouteTable.Routes);
+			loggerFactory.AddConsole();
+			application.UseIdentityServer();
+			
 
 		}
 
@@ -69,7 +92,7 @@ namespace Sample.App_Start
 			container.Register<ICommandBus, CommandBus>();
 			container.Register<IUnitOfWorkAsync, UnitOfWork>(Lifestyle.Singleton);
 			//container.Register<IDataContextAsync, DataContext>(Lifestyle.Singleton);
-			container.RegisterCollection(typeof(ICommandHandler<>),  typeof(ICommandHandler<>).Assembly);
+			container.RegisterCollection(typeof(ICommandHandler<>), typeof(ICommandHandler<>).Assembly);
 			container.RegisterDecorator(typeof(ICommandHandler<>), typeof(CommitDecorator<>));
 			container.RegisterDecorator(typeof(ICommandHandler<>), typeof(PostCommitEventDecorator<>));
 			container.Register<IRepositoryAsync<Course>, Repository<Course>>();
@@ -82,5 +105,20 @@ namespace Sample.App_Start
 
 			//container.Register<IUnitOfWork, DbContextUnitOfWork>();
 		}
+
+		public void ConfigureServices(IServiceCollection services)
+		{
+			// configure identity server with in-memory stores, keys, clients and scopes
+			services.AddIdentityServer()
+			  .AddTemporarySigningCredential()
+			  .AddInMemoryApiResources(Config.GetApiResources())
+			  .AddInMemoryClients(Config.GetClients());
+
+			//add framework services
+			
+
+		}
+
+
 	}
 }

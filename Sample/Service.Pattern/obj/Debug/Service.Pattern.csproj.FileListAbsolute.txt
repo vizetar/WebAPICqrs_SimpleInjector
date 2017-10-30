@@ -17,3 +17,4 @@ C:\Prozetcs\CQRSProject\Sample\Service.Pattern\bin\Debug\System.Net.Http.dll
 C:\Prozetcs\CQRSProject\Sample\Service.Pattern\bin\Debug\Repository.Pattern.pdb
 C:\Prozetcs\CQRSProject\Sample\Service.Pattern\bin\Debug\Repository.Pattern.dll.config
 C:\Prozetcs\CQRSProject\Sample\Service.Pattern\obj\Debug\Service.Pattern.csprojResolveAssemblyReference.cache
+C:\Prozetcs\CQRSProject\Sample\Service.Pattern\obj\Debug\Service.Pattern.csproj.CoreCompileInputs.cache
